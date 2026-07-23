@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Checklist de Produção</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" /> <!--Essa parte é onde importamos o CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="board">
+        <div class="eyebrow">
+          Checklist de produção &mdash; feiras &amp; eventos corporativos
+          <span class="unsaved-badge" id="unsavedBadge"
+            >Alterações pendentes!</span
+          >
+        </div>
+        <div class="board-top">
+          <div>
+            <input
+              class="event-name-input"
+              id="eventName"
+              placeholder="Nome do evento / stand"
+            />
+            <br />
+            <input
+              type="text"
+              class="event-date-input"
+              id="eventDate"
+              placeholder="DD/MM/AAAA"
+              maxlength="10"
+            />
+          </div>
+          <div class="signal">
+            <div class="signal-lamp" id="signalLamp"></div>
+            <div class="signal-text">
+              <div class="signal-pct" id="signalPct">0%</div>
+              <div class="signal-label">concluído</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-bar">
+          <select class="event-select" id="eventSelect"></select>
+          <button class="icon-btn primary" id="btnNewEvent">
+            + Novo evento
+          </button>
+          <button class="icon-btn" id="btnExport">Exportar .json</button>
+          <button class="icon-btn" id="btnImport">Importar .json</button>
+          <button class="icon-btn danger" id="btnDeleteEvent">
+            Excluir evento
+          </button>
+          <input type="file" id="importFile" accept="application/json" />
+          <div id="newEventForm">
+            <input
+              type="text"
+              id="newEventNameInput"
+              placeholder="Nome do novo evento (copia a checklist atual)"
+            />
+            <button class="icon-btn primary" id="btnConfirmNewEvent">
+              Criar
+            </button>
+            <button class="icon-btn" id="btnCancelNewEvent">Cancelar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" data-phase="pre" id="tabPre">
+          Pré-evento <span class="count" id="countPre"></span>
+        </div>
+        <div class="tab" data-phase="dia" id="tabDia">
+          Dia do evento <span class="count" id="countDia"></span>
+        </div>
+      </div>
+
+      <div class="phase active" id="phasePre"></div>
+      <div class="phase" id="phaseDia"></div>
+
+      <div class="foot-note">
+        salvo automaticamente neste navegador &middot; use "Exportar .json" para
+        guardar o evento numa pasta compartilhada e "Importar .json" para
+        reabrir em outro computador
+      </div>
+    </div>
+
+    <script src="script.js"></script> <!--Essa parte é onde importamos o JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
